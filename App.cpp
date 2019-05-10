@@ -29,6 +29,22 @@ void App::keyDown(unsigned char key, float x, float y){
     }
 }
 
+void App::specialKeyDown(int key, float x, float y) {
+    if(key >= 100 && key <= 103) {
+        for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
+            (*i)->handleSpecialKeyDown(key, x, y);
+        }
+    }
+}
+
+void App::specialKeyUp(int key, float x, float y) {
+    if(key >= 100 && key <= 103) {
+         for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
+            (*i)->handleSpecialKeyUp(key, x, y);
+        }
+    }
+}
+
 App::~App(){    
     for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
         delete *i;

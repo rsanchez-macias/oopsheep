@@ -4,25 +4,21 @@
 #include "AppComponent.h"
 #include "AnimatedRect.h"
 #include "Timer.h"
+#include "Player.h"
 
 class Game: public AppComponent, private Timer{
-    TexRect* mushroom;
-    Rect* projectile;
-    
-    bool projectileVisible;
-    bool mushroomVisible;
-    bool up;
-    bool left;
-    bool hit;
-    float theta;
-    float deg;
+    Player* player;
+
 public:
-    AnimatedRect* explosion;
     Game();
     
     void draw() const ;
     void handleKeyDown(unsigned char, float, float);
     
+    // Special Keyboard Handlign
+    void handleSpecialKeyDown(int, float, float);
+    void handleSpecialKeyUp(int, float, float);
+
     void action();
 
     ~Game();
