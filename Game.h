@@ -20,7 +20,7 @@ class Game: public AppComponent, private Timer{
 public:
     Game();
     
-    void draw() const ;
+    void draw() const;
     void handleKeyDown(unsigned char, float, float);
     void handleKeyUp(unsigned char, float, float);
     
@@ -34,7 +34,6 @@ public:
     void action();
 
     ~Game();
-
 };
 
 #endif 

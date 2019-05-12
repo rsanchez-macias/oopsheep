@@ -6,13 +6,14 @@
 
 class Player: public TexRect {
 
+    // Members variables that support moving the player
     bool up, down, left, right;
     int upK, downK, leftK, rightK;
 
 public:
 
    // Player(float x, float y, float w, float h, float r, float g, float b);
-    Player::Player(const char* filename, float x, float y, float w, float h, int upK, int rightK, int downK, int leftK): TexRect(filename, x, y, w, h) {
+    Player(const char* filename, float x, float y, float w, float h, int upK, int rightK, int downK, int leftK): TexRect(filename, x, y, w, h) {
         up = false;
         down = false;
         left = false;
@@ -39,11 +40,11 @@ public:
         if(key == downK) {
             down = true;
         }
-    };
+    }
 
+   // void stop(int key);
     void stop(int key) {
         if(key == leftK) {
-            std::cout << "Here" << std::endl;
             left = false;
         }
         if(key == upK) {
@@ -55,19 +56,19 @@ public:
         if(key == downK) {
             down = false;
         }
-    };
+    }
 
     void action() {
-        if(left) {
+        if(left && x >= -1.5) {
             x -= 0.001;
         }
-        if(right) {
+        if(right && (x + w) <= 1.5) {
             x += 0.001;
         }
-        if(up) {
+        if(up && y <= 1) {
             y += 0.001;
         }
-        if(down) {
+        if(down && (y - h - 0.1) >= -1) {
             y -= 0.001;
         }
     }

@@ -71,6 +71,7 @@ void Game::handleSpecialKeyUp(int key, float x, float y) {
 }
 
 void Game::handleLeftMouseDown(float x, float y) {
+    std::cout << "(" << x << ", " << y << ")" << std::endl;
     if(inMenu) {
         if(startButton->contains(x, y)) {
             inMenu = false;

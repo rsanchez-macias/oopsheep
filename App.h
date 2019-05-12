@@ -16,6 +16,7 @@ class App: public GlutApp {
     
     bool fullscreen;
 
+
 public:
     
     App(int argc, char** argv, int width, int height, const char* title);
