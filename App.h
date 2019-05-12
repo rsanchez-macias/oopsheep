@@ -15,6 +15,7 @@ class App: public GlutApp {
     }
     
     bool fullscreen;
+
 public:
     
     App(int argc, char** argv, int width, int height, const char* title);
@@ -22,8 +23,11 @@ public:
     void draw() const;
     
     void keyDown(unsigned char key, float x, float y);
+    void keyUp(unsigned char key, float x, float y);
     void specialKeyDown(int, float, float);
     void specialKeyUp(int, float, float);
+
+    void leftMouseDown(float, float);
     
     ~App();
 };

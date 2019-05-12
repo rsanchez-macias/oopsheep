@@ -29,6 +29,12 @@ void App::keyDown(unsigned char key, float x, float y){
     }
 }
 
+void App::keyUp(unsigned char key, float x, float y){
+    for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
+        (*i)->handleKeyUp(key, x, y);
+    }   
+}
+
 void App::specialKeyDown(int key, float x, float y) {
     if(key >= 100 && key <= 103) {
         for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
@@ -39,9 +45,15 @@ void App::specialKeyDown(int key, float x, float y) {
 
 void App::specialKeyUp(int key, float x, float y) {
     if(key >= 100 && key <= 103) {
-         for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
+        for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
             (*i)->handleSpecialKeyUp(key, x, y);
         }
+    }
+}
+
+void App::leftMouseDown(float x, float y) {
+    for (std::vector<AppComponent*>::iterator i = components.begin(); i != components.end(); ++i) {
+        (*i)->handleLeftMouseDown(x, y);
     }
 }
 

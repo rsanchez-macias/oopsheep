@@ -7,48 +7,52 @@
 class Player: public TexRect {
 
     bool up, down, left, right;
+    int upK, downK, leftK, rightK;
 
 public:
 
    // Player(float x, float y, float w, float h, float r, float g, float b);
-    Player::Player(const char* filename, float x, float y, float w, float h): TexRect(filename, x, y, w, h) {
+    Player::Player(const char* filename, float x, float y, float w, float h, int upK, int rightK, int downK, int leftK): TexRect(filename, x, y, w, h) {
         up = false;
         down = false;
         left = false;
         right = false;
 
+        this->upK = upK;
+        this->rightK = rightK;
+        this->downK = downK;
+        this->leftK = leftK;
+
         std::cout << "Hello" << std::endl;
     }
 
     void move(int key) {
-        if(key == 100) {
-            std::cout << "Here" << std::endl;
-            x -= 0.001;
+        if(key == leftK) {
             left = true;
         }
-        if(key == 101) {
+        if(key == upK) {
             up = true;
         }
-        if(key == 102) {
+        if(key == rightK) {
             right = true;
         }
-        if(key == 103) {
+        if(key == downK) {
             down = true;
         }
     };
 
     void stop(int key) {
-        if(key == 100) {
+        if(key == leftK) {
             std::cout << "Here" << std::endl;
             left = false;
         }
-        if(key == 101) {
+        if(key == upK) {
             up = false;
         }
-        if(key == 102) {
+        if(key == rightK) {
             right = false;
         }
-        if(key == 103) {
+        if(key == downK) {
             down = false;
         }
     };
