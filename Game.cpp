@@ -1,40 +1,29 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
-
-
-#if defined WIN32
-#include <freeglut.h>
-#elif defined __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/freeglut.h>
-#endif
-
+#include "vector"
+#include "iterator"
+#include <ctime>
+#include <cstdlib>
 
 #include "Game.h"
 
 Game::Game(){
 
     //Adding a player to the game
-    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100);
+    player1 = new Player("../pikachu.png.", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100);
     player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97);
 
-    startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
-    title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
-    optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
+    flockS = 10;
 
-    fence1 = new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0);
-    fence2 = new Fence("../fence2.png", 0.9, 0.5, 0.7, 1.0);
+    for(int i = 0; i < flockS; i ++)
+        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, 1, 1, 1, 1));
+
+    startButton = new TexRect("../start.png", 0.0, 0.0, 0.5, 0.3);
     
     inMenu = true;
     inGame = false;
     inOver = false;
-    inOptions = false;
-
-    blueScreen = new TexRect("../filler.png", -1.80, 1.0, 4.0, 2.0);
-    rightBlock = new Rect(-1.80, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
-    leftBlock = new Rect(1.50, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
 
     setRate(1);
     start();
@@ -42,38 +31,30 @@ Game::Game(){
 
 void Game::action(){
     if(inGame) {
-        player1->action(player2, fence1);
-        player2->action(player1, fence1);
+        player1->action();
+        player2->action();
+        for (int i = 0; i < flockS; i ++){
+            flock[i]->action();
+        }
     }
 }
 
 void Game::draw() const {
-    rightBlock->draw();
-    leftBlock->draw();
     if(inGame) {
-        glClearColor(0.0, 0.1, 0.0, 1.0);
         player1->draw(0.0);
         player2->draw(0.0);
-        fence1->draw(0.0);
-        fence2->draw(0.0);
+        for (int i = 0; i < flockS; i ++){
+            flock[i]->draw(0.0);
+        }
     }
     if(inMenu) {
-        glClearColor(0.1, 0.1, 0.1, 1.0);
         startButton->draw(0.0);
-        optionButton->draw(0.0);
-        title->draw(0.0);
     }    
-    if(inOptions) {
-        blueScreen->draw(0.0);
-    }
 }
 
 void Game::handleKeyDown(unsigned char key, float x, float y){
-    if (key == 61){
-        inMenu = true;
-        inGame = false;
-        inOver = false;
-        inOptions = false;
+    if (key == ' '){
+        
     }
     else if (key == 'p'){
         stop();
@@ -105,15 +86,10 @@ void Game::handleSpecialKeyUp(int key, float x, float y) {
 }
 
 void Game::handleLeftMouseDown(float x, float y) {
-    std::cout << "(" << x << ", " << y << ")" << std::endl;
     if(inMenu) {
         if(startButton->contains(x, y)) {
             inMenu = false;
             inGame = true;
-        }
-        if(optionButton->contains(x, y)) {
-            inMenu = false;
-            inOptions = true;
         }
     }
 }
@@ -121,7 +97,5 @@ void Game::handleLeftMouseDown(float x, float y) {
 Game::~Game(){
     delete player1;
     delete player2;
-    delete startButton;
-    delete optionButton;
     stop();
 }

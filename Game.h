@@ -6,36 +6,29 @@
 #include "Timer.h"
 #include "Player.h"
 #include "TexRect.h"
-#include "Fence.h"
-#include "Rect.h"
-
+#include "vector"
+#include "sheep.h"
+#include "iterator"
+#include <ctime>
+#include <cstdlib>
 
 class Game: public AppComponent, private Timer{
     Player* player1;
     Player* player2;
 
+    std::vector<Sheep*> flock;
+    int flockS;
+
     TexRect* startButton;
-    TexRect* title;
-    TexRect* optionButton;
-
-    Fence* fence1;
-    Fence* fence2;
-
-    TexRect* blueScreen;
-
-
-    Rect* leftBlock;
-    Rect* rightBlock;
 
     bool inMenu;
-    bool inOptions;
     bool inGame;
     bool inOver;
 
 public:
     Game();
     
-    void draw() const;
+    void draw() const ;
     void handleKeyDown(unsigned char, float, float);
     void handleKeyUp(unsigned char, float, float);
     
@@ -49,6 +42,7 @@ public:
     void action();
 
     ~Game();
+
 };
 
 #endif 
