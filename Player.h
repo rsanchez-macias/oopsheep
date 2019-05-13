@@ -10,10 +10,11 @@
 class Player: public TexRect {
 
     // Members variables that support moving the player
-    bool up, down, left, right;
+    //bool up, down, left, right;
     int upK, downK, leftK, rightK;
 
 public:
+    bool up, down, left, right;
 
    // Player(float x, float y, float w, float h, float r, float g, float b);
     Player(const char* filename, float x, float y, float w, float h, int upK, int rightK, int downK, int leftK): TexRect(filename, x, y, w, h) {
@@ -60,8 +61,11 @@ public:
         }
     }
 
-    void action(TexRect* pl, TexRect* fence) {
+    void action(TexRect* pl, TexRect* fence1, TexRect* fence2) {
         checkCollision(pl);
+        checkCollision(fence1);
+        checkCollision(fence2);
+
         if(left && x >= -1.5) {
             x -= 0.001;
         }

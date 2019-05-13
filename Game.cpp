@@ -11,8 +11,13 @@
 #include <GL/freeglut.h>
 #endif
 
-
 #include "Game.h"
+
+// Adding new stuff by Francesco
+#include "vector"
+#include "iterator"
+#include <ctime>
+#include <cstdlib>
 
 Game::Game(){
 
@@ -25,7 +30,7 @@ Game::Game(){
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
 
     fence1 = new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0);
-    fence2 = new Fence("../fence2.png", 0.9, 0.5, 0.7, 1.0);
+    fence2 = new Fence("../fence2.png", 0.80, 0.5, 0.7, 1.0);
     
     inMenu = true;
     inGame = false;
@@ -36,14 +41,27 @@ Game::Game(){
     rightBlock = new Rect(-1.80, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
     leftBlock = new Rect(1.50, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
 
+    // Adding flock 
+      flockS = 10;
+
+    for(int i = 0; i < flockS; i ++)
+        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, 1, 1, 1, 1));
+
+
     setRate(1);
     start();
 }
 
 void Game::action(){
     if(inGame) {
-        player1->action(player2, fence1);
-        player2->action(player1, fence1);
+        player1->action(player2, fence1, fence2);
+        player2->action(player1, fence2, fence2);
+        
+
+        // Adding new stuff
+        for (int i = 0; i < flockS; i ++){
+            flock[i]->action();
+        }
     }
 }
 
@@ -51,14 +69,19 @@ void Game::draw() const {
     rightBlock->draw();
     leftBlock->draw();
     if(inGame) {
-        glClearColor(0.0, 0.1, 0.0, 1.0);
+        glClearColor(0.3, 0.6, 0.3, 1.0);
         player1->draw(0.0);
         player2->draw(0.0);
         fence1->draw(0.0);
         fence2->draw(0.0);
+        
+        // Adding new stuff
+        for (int i = 0; i < flockS; i ++){
+            flock[i]->draw(0.0);
+        }
     }
     if(inMenu) {
-        glClearColor(0.1, 0.1, 0.1, 1.0);
+        glClearColor(0.9, 0.9, 0.9, 1.0);
         startButton->draw(0.0);
         optionButton->draw(0.0);
         title->draw(0.0);
