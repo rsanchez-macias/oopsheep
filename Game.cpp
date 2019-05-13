@@ -2,6 +2,16 @@
 #include <cmath>
 #include <iostream>
 
+
+#if defined WIN32
+#include <freeglut.h>
+#elif defined __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/freeglut.h>
+#endif
+
+
 #include "Game.h"
 
 Game::Game(){
@@ -31,10 +41,12 @@ void Game::action(){
 
 void Game::draw() const {
     if(inGame) {
+        glClearColor(0.0, 0.1, 0.0, 1.0);
         player1->draw(0.0);
         player2->draw(0.0);
     }
     if(inMenu) {
+        glClearColor(0.1, 0.1, 0.1, 1.0);
         startButton->draw(0.0);
         optionButton->draw(0.0);
         title->draw(0.0);
@@ -42,8 +54,10 @@ void Game::draw() const {
 }
 
 void Game::handleKeyDown(unsigned char key, float x, float y){
-    if (key == ' '){
-        
+    if (key == 61){
+        inMenu = true;
+        inGame = false;
+        inOver = false;
     }
     else if (key == 'p'){
         stop();
