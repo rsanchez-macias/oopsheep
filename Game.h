@@ -6,6 +6,8 @@
 #include "Timer.h"
 #include "Player.h"
 #include "TexRect.h"
+#include "Fence.h"
+#include "Rect.h"
 
 
 class Game: public AppComponent, private Timer{
@@ -16,7 +18,14 @@ class Game: public AppComponent, private Timer{
     TexRect* title;
     TexRect* optionButton;
 
+    Fence* fence1;
+    Fence* fence2;
+
     TexRect* blueScreen;
+
+
+    Rect* leftBlock;
+    Rect* rightBlock;
 
     bool inMenu;
     bool inOptions;

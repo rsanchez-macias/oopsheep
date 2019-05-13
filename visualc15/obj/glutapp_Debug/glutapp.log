@@ -1,14 +1,29 @@
-﻿  Game.cpp
-C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(65): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(68): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(71): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(74): warning C4305: '-=': truncation from 'double' to 'float'
+﻿  App.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(66): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(69): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(72): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(75): warning C4305: '-=': truncation from 'double' to 'float'
+  Game.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(66): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(69): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(72): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(75): warning C4305: '-=': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(20): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(21): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(23): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(47): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(52): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(35): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(36): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(37): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(54): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(61): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+  app_main.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(66): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(69): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(72): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.h(75): warning C4305: '-=': truncation from 'double' to 'float'
+  Generating Code...
   glutapp.vcxproj -> C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\glutapp.exe

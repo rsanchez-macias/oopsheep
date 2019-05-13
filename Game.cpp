@@ -23,6 +23,9 @@ Game::Game(){
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
+
+    fence1 = new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0);
+    fence2 = new Fence("../fence2.png", 0.9, 0.5, 0.7, 1.0);
     
     inMenu = true;
     inGame = false;
@@ -30,6 +33,8 @@ Game::Game(){
     inOptions = false;
 
     blueScreen = new TexRect("../filler.png", -1.80, 1.0, 4.0, 2.0);
+    rightBlock = new Rect(-1.80, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
+    leftBlock = new Rect(1.50, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
 
     setRate(1);
     start();
@@ -37,16 +42,20 @@ Game::Game(){
 
 void Game::action(){
     if(inGame) {
-        player1->action(player2);
-        player2->action(player1);
+        player1->action(player2, fence1);
+        player2->action(player1, fence1);
     }
 }
 
 void Game::draw() const {
+    rightBlock->draw();
+    leftBlock->draw();
     if(inGame) {
         glClearColor(0.0, 0.1, 0.0, 1.0);
         player1->draw(0.0);
         player2->draw(0.0);
+        fence1->draw(0.0);
+        fence2->draw(0.0);
     }
     if(inMenu) {
         glClearColor(0.1, 0.1, 0.1, 1.0);

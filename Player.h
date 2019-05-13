@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include "TexRect.h"
+#include "Fence.h"
 
 
 class Player: public TexRect {
@@ -59,7 +60,7 @@ public:
         }
     }
 
-    void action(Player* pl) {
+    void action(TexRect* pl, TexRect* fence) {
         checkCollision(pl);
         if(left && x >= -1.5) {
             x -= 0.001;
@@ -79,8 +80,8 @@ public:
     Collision Detection :'( Could try to use it for sheep by making the parameter generic
     using a parent class pointer
     */
-    
-    void checkCollision(Player* pl) {
+
+    void checkCollision(TexRect* pl) {
         float x = pl->getX(), y = pl->getY(), w = pl->getW(), h = pl->getH();
         
         if(
