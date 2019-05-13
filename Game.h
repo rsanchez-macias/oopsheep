@@ -16,7 +16,10 @@ class Game: public AppComponent, private Timer{
     TexRect* title;
     TexRect* optionButton;
 
+    TexRect* blueScreen;
+
     bool inMenu;
+    bool inOptions;
     bool inGame;
     bool inOver;
 

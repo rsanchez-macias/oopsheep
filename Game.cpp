@@ -27,6 +27,9 @@ Game::Game(){
     inMenu = true;
     inGame = false;
     inOver = false;
+    inOptions = false;
+
+    blueScreen = new TexRect("../filler.png", -1.80, 1.0, 4.0, 2.0);
 
     setRate(1);
     start();
@@ -34,8 +37,8 @@ Game::Game(){
 
 void Game::action(){
     if(inGame) {
-        player1->action();
-        player2->action();
+        player1->action(player2);
+        player2->action(player1);
     }
 }
 
@@ -51,6 +54,9 @@ void Game::draw() const {
         optionButton->draw(0.0);
         title->draw(0.0);
     }    
+    if(inOptions) {
+        blueScreen->draw(0.0);
+    }
 }
 
 void Game::handleKeyDown(unsigned char key, float x, float y){
@@ -58,6 +64,7 @@ void Game::handleKeyDown(unsigned char key, float x, float y){
         inMenu = true;
         inGame = false;
         inOver = false;
+        inOptions = false;
     }
     else if (key == 'p'){
         stop();
@@ -94,6 +101,10 @@ void Game::handleLeftMouseDown(float x, float y) {
         if(startButton->contains(x, y)) {
             inMenu = false;
             inGame = true;
+        }
+        if(optionButton->contains(x, y)) {
+            inMenu = false;
+            inOptions = true;
         }
     }
 }

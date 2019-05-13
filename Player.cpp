@@ -58,3 +58,5 @@ void Player::action() {
         y -= 0.001;
     }
 }
+
+

@@ -1,8 +1,10 @@
 #ifndef PL_H
 #define PL_H
 
+#include <cmath>
 #include <iostream>
 #include "TexRect.h"
+
 
 class Player: public TexRect {
 
@@ -57,7 +59,8 @@ public:
         }
     }
 
-    void action() {
+    void action(Player* pl) {
+        checkCollision(pl);
         if(left && x >= -1.5) {
             x -= 0.001;
         }
@@ -70,6 +73,52 @@ public:
         if(down && (y - h - 0.1) >= -1) {
             y -= 0.001;
         }
+    }
+
+    /*
+    Collision Detection :'( Could try to use it for sheep by making the parameter generic
+    using a parent class pointer
+    */
+    
+    void checkCollision(Player* pl) {
+        float x = pl->getX(), y = pl->getY(), w = pl->getW(), h = pl->getH();
+        
+        if(
+            (contains(x, y) && 
+            abs(getX() + getW() - x) <= 0.005)
+            || (contains(x, y - h) && 
+            (abs(getX() + getW() - x) <= 0.005))
+        ) {
+                right = false;
+        }
+
+        if(
+            (contains(x, y) && 
+            abs(getY() - getH() - y) <= 0.005)
+            || (contains(x + w, y) && 
+            !(abs(x + w - getX()) <= 0.005))
+        ) {
+                down = false;
+        }
+
+        if(
+            (contains(x + w, y) &&
+            abs(x + w - getX()) <= 0.005)
+            || (contains(x + w, y - h) &&
+            !(abs(getY() - y + h) <= 0.005))
+        ) {
+                left = false;
+        }
+
+        if(
+            (contains(x + w, y - h) && 
+            abs(getY() - y + h) <= 0.005)
+            || (contains(x, y - h) &&
+            !(abs(getX() + getW() - x) <= 0.005))
+        ) {
+                up = false;
+        }
+
     }
 
 };
