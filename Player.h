@@ -24,7 +24,6 @@ public:
         this->downK = downK;
         this->leftK = leftK;
 
-        std::cout << "Hello" << std::endl;
     }
 
     void move(int key) {

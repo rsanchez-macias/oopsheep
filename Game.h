@@ -7,11 +7,14 @@
 #include "Player.h"
 #include "TexRect.h"
 
+
 class Game: public AppComponent, private Timer{
     Player* player1;
     Player* player2;
 
     TexRect* startButton;
+    TexRect* title;
+    TexRect* optionButton;
 
     bool inMenu;
     bool inGame;

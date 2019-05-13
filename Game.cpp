@@ -7,10 +7,12 @@
 Game::Game(){
 
     //Adding a player to the game
-    player1 = new Player("../sheep.png", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100);
+    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100);
     player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97);
 
-    startButton = new TexRect("../start.png", 0.0, 0.0, 0.5, 0.3);
+    startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
+    title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
+    optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
     
     inMenu = true;
     inGame = false;
@@ -34,6 +36,8 @@ void Game::draw() const {
     }
     if(inMenu) {
         startButton->draw(0.0);
+        optionButton->draw(0.0);
+        title->draw(0.0);
     }    
 }
 
@@ -83,5 +87,7 @@ void Game::handleLeftMouseDown(float x, float y) {
 Game::~Game(){
     delete player1;
     delete player2;
+    delete startButton;
+    delete optionButton;
     stop();
 }

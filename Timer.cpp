@@ -11,7 +11,7 @@ void Timer::repeat(Timer* self){
         int delay = self->interval;
         if (self->delta >= self->interval){
            
-            self->action();
+self->action();
             glutPostRedisplay();
             
             self->initial = glutGet(GLUT_ELAPSED_TIME);
