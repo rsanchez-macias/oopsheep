@@ -35,7 +35,7 @@ public:
         right = false;
         */
 
-        if ((x < -1 && y > 1) || (x > 1 && y < -1)){ 
+        if ((x < -0.8 && y > 0.8) || (x > 0.8 && y < -0.8)){ 
             if (up){
                 up = false;
                 left = false;

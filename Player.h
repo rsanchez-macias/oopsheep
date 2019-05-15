@@ -5,6 +5,7 @@
 #include <iostream>
 #include "TexRect.h"
 #include "Fence.h"
+#include "sheep.h"
 
 
 class Player: public TexRect {
@@ -61,22 +62,23 @@ public:
         }
     }
 
-    void action(TexRect* pl, TexRect* fence1, TexRect* fence2) {
+    void action(TexRect* pl, TexRect* fence1, TexRect* fence2, TexRect* sheep) {
         checkCollision(pl);
         checkCollision(fence1);
         checkCollision(fence2);
+        checkCollision(sheep);
 
         if(left && x >= -1.5) {
-            x -= 0.001;
+            x -= 0.0005;
         }
         if(right && (x + w) <= 1.5) {
-            x += 0.001;
+            x += 0.0005;
         }
         if(up && y <= 1) {
-            y += 0.001;
+            y += 0.0005;
         }
         if(down && (y - h - 0.1) >= -1) {
-            y -= 0.001;
+            y -= 0.0005;
         }
     }
 
