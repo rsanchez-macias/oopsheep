@@ -54,13 +54,14 @@ Game::Game(){
 
 void Game::action(){
     if(inGame) {
-        player1->action(player2, fence1, fence2);
-        player2->action(player1, fence2, fence2);
-        
+        for (int i = 0; i < flockS; i ++){
+            player1->action(player2, fence1, fence2, flock[i]);
+            player2->action(player1, fence2, fence2, flock[i]);
+        }
 
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action();
+            flock[i]->action(player1, player2, fence1, fence2);
         }
     }
 }
