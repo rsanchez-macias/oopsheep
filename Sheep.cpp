@@ -35,7 +35,8 @@ void Sheep::move(){
 
 void Sheep::action(std::vector<Actor*> actors) {
 
-    move();
+    if(!hit)
+        move();
 
     for(int i = 0; i < actors.size(); i++) {
         if(i != index) checkCollision(actors[i]);

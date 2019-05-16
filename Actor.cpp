@@ -9,6 +9,8 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     left = false;
     right = false;
 
+    hit = false;
+
     dirX = 0;
     dirY = 0;
 
@@ -18,8 +20,17 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     this->doesMove = doesMove;
 }
 
+void Actor::collided(Actor* act, int dir) {
+    for(int i = 0; i < 5; i++) {
+        if(dir == 1) act->setX(act->getX() - 0.001);
+        if(dir == 2) act->setY(act->getY() + 0.001);
+        if(dir == 3) act->setX(act->getX() + 0.001);
+        if(dir == 4) act->setY(act->getY() - 0.001);
+    }
+}
 
 void Actor::checkCollision(Actor* act) {
+
 
     float x = act->getX(), y = act->getY(), w = act->getW(), h = act->getH();
 
@@ -35,6 +46,8 @@ void Actor::checkCollision(Actor* act) {
         || (contains(x, centerY))
     ) {
             right = false;
+            //act->right = true;
+            //hit = true;
     }
 
     if(
@@ -45,6 +58,8 @@ void Actor::checkCollision(Actor* act) {
         || (contains(centerX, y))
     ) {
             down = false;
+            //act->down = true;
+            //hit = true;
     }
 
     if(
@@ -55,6 +70,8 @@ void Actor::checkCollision(Actor* act) {
         || contains(x + w, centerY)
     ) {
             left = false;
+            //act->left = true;
+            //hit = true;
     }
 
     if(
@@ -65,6 +82,8 @@ void Actor::checkCollision(Actor* act) {
         || contains(centerX, y - h)
     ) {
             up = false;
+            //act->up = true;
+            //hit = true;
     }
 }
 

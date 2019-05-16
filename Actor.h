@@ -13,6 +13,8 @@ protected:
     float speed;
     int index;
 
+    bool hit;
+
 public:
     Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001);
 
@@ -31,6 +33,10 @@ public:
 
     virtual void move(){};
     void checkCollision(Actor* act);
+
+    // May become private methods
+    bool checkBorderCollision(Actor* act);
+    void collided(Actor* act, int dir);
 
     ~Actor();
 

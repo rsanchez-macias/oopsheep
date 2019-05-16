@@ -6,7 +6,7 @@
 #include "Timer.h"
 #include "Player.h"
 #include "TexRect.h"
-#include "Fence.h"
+#include "Net.h"
 #include "Rect.h"
 #include "vector"
 #include "Sheep.h"
@@ -21,8 +21,15 @@ class Game: public AppComponent, private Timer{
     Player* player1;
     Player* player2;
 
-    Fence* fence1;
-    Fence* fence2;
+    Net* net1;
+    Net* net2;
+
+    Actor* topWall1;
+    Actor* bottomWall1;
+    Actor* topWall2;
+    Actor* bottomWall2;
+
+    
 
     // Adding flock
     std::vector<Sheep*> flock;

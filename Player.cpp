@@ -40,15 +40,19 @@ void Player::action(std::vector<Actor*> actors) {
 void Player::move(int key) {
     if(key == leftK) {
         left = true;
+        dirX = -1;
     }
     if(key == upK) {
         up = true;
+        dirY = 1;
     }
     if(key == rightK) {
         right = true;
+        dirX = 1;
     }
     if(key == downK) {
         down = true;
+        dirY = -1;
     }
 }
 

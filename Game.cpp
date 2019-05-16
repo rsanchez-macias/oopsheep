@@ -31,8 +31,22 @@ Game::Game(){
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
 
-    fence1 = new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0);
-    fence2 = new Fence("../fence2.png", 0.80, 0.5, 0.7, 1.0);
+    net1 = new Net("../net.png", -1.5, 0.4, 0.35, 0.8);
+    net2 = new Net("../net.png", 1.15, 0.4, 0.35, 0.8);
+
+    // const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001
+    topWall1 = new Actor("../sideFence.png", -1.5, 0.5, 0.4, 0.1, false, actors.size(), 0.0);
+    actors.push_back(topWall1);
+    
+    bottomWall1 = new Actor("../sideFence.png", -1.5, -0.4, 0.4, 0.1, false, actors.size(), 0.0);
+    actors.push_back(bottomWall1);
+
+    topWall2 = new Actor("../sideFence.png", 1.1, 0.5, 0.4, 0.1, false, actors.size(), 0.0);
+    actors.push_back(topWall2);
+    
+    bottomWall2 = new Actor("../sideFence.png", 1.1, -0.4, 0.4, 0.1, false, actors.size(), 0.0);
+    actors.push_back(bottomWall2);
+   
     
     inMenu = true;
     inGame = false;
@@ -73,15 +87,23 @@ void Game::draw() const {
     leftBlock->draw();
     if(inGame) {
         glClearColor(0.6, 0.6, 0.3, 1.0);
-        player1->draw(0.0);
-        player2->draw(0.0);
-        fence1->draw(0.0);
-        fence2->draw(0.0);
+        player1->draw(0.1);
+        player2->draw(0.1);
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->draw(0.0);
+            flock[i]->draw(0.1);
         }
+
+        // Draw fences
+        topWall1->draw(0.1);
+        bottomWall1->draw(0.1);
+        topWall2->draw(0.1);
+        bottomWall2->draw(0.1);
+
+        net1->draw(0.0);
+        net2->draw(0.0);
+
     }
     if(inMenu) {
         glClearColor(0.9, 0.9, 0.9, 1.0);
@@ -101,6 +123,7 @@ void Game::handleKeyDown(unsigned char key, float x, float y){
         inOver = false;
         inOptions = false;
     }
+
     else if (key == 'p'){
         stop();
     }
