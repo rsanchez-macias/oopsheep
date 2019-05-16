@@ -27,6 +27,8 @@ public:
     bool getR() const;
     bool getL() const;
 
+    int getSpeed() const {return speed;}
+
     virtual void move(){};
     void checkCollision(Actor* act);
 

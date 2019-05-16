@@ -22,12 +22,17 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
 void Actor::checkCollision(Actor* act) {
 
     float x = act->getX(), y = act->getY(), w = act->getW(), h = act->getH();
+
+    float centerX = x + (w / 2);
+    float centerY = y - (h / 2);
+
     
     if(
         (contains(x, y) && 
         abs(getX() + getW() - x) <= 0.005)
         || (contains(x, y - h) && 
         (abs(getX() + getW() - x) <= 0.005))
+        || (contains(x, centerY))
     ) {
             right = false;
     }
@@ -37,6 +42,7 @@ void Actor::checkCollision(Actor* act) {
         abs(getY() - getH() - y) <= 0.005)
         || (contains(x + w, y) && 
         !(abs(x + w - getX()) <= 0.005))
+        || (contains(centerX, y))
     ) {
             down = false;
     }
@@ -46,6 +52,7 @@ void Actor::checkCollision(Actor* act) {
         abs(x + w - getX()) <= 0.005)
         || (contains(x + w, y - h) &&
         !(abs(getY() - y + h) <= 0.005))
+        || contains(x + w, centerY)
     ) {
             left = false;
     }
@@ -55,6 +62,7 @@ void Actor::checkCollision(Actor* act) {
         abs(getY() - y + h) <= 0.005)
         || (contains(x, y - h) &&
         !(abs(getX() + getW() - x) <= 0.005))
+        || contains(centerX, y - h)
     ) {
             up = false;
     }

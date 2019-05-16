@@ -1,16 +1,3 @@
-﻿  Game.cpp
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(31): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(35): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(44): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(50): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(75): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(87): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+﻿  Actor.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(30): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
   glutapp.vcxproj -> C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\glutapp.exe
