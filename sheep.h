@@ -5,25 +5,27 @@
 #include <cstdlib>
 #include <ctime>
 #include <stdio.h>
+#include <vector>
 #include "Actor.h"
 
 using namespace std;
 
+
 class Sheep: public Actor {
 
-    int dirX, dirY;
     int counter = 0;
 
     time_t t;
 
     int timer = 100;
 
+
 public:
 
-    Sheep(const char* filename, float x, float y, float w, float h, bool doesMove);
+    Sheep(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed);
     
     void move();
-    void action(Actor* pl1, Actor* pl2);
+    void action(std::vector<Actor*> actors);
 };
 
 #endif

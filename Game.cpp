@@ -21,9 +21,11 @@
 
 Game::Game(){
 
-    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100, true);
-    player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97, true);
+    player1 = new Player("../cutecat.jpg", -0.40, 0.0, 0.2, 0.2, 101, 102, 103, 100, true, 0,0.001);
+    actors.push_back(player1);
 
+    player2 = new Player("../pikachu.png", 0.20, 0.0, 0.2, 0.2, 119, 100, 115, 97, true, actors.size(), 0.001);
+    actors.push_back(player2);
 
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
@@ -42,11 +44,12 @@ Game::Game(){
     leftBlock = new Rect(1.50, 1.0, 0.30, 2.0, 0.0, 0.0, 0.0);
 
     // Adding flock 
-      flockS = 10;
+    flockS = 10;
 
-    for(int i = 0; i < flockS; i ++)
-        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, true));
-
+    for(int i = 0; i < flockS; i ++) {
+        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.002));
+        actors.push_back(flock[i]);
+    }
 
     setRate(1);
     start();
@@ -55,12 +58,12 @@ Game::Game(){
 void Game::action(){
     if(inGame) {
        
-        player1->action(player2);
-        player2->action(player1);
+        player1->action(actors);
+        player2->action(actors);
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action(player1, player2);
+            flock[i]->action(actors);
         }
     }
 }
@@ -69,7 +72,7 @@ void Game::draw() const {
     rightBlock->draw();
     leftBlock->draw();
     if(inGame) {
-        glClearColor(0.3, 0.6, 0.3, 1.0);
+        glClearColor(0.6, 0.6, 0.3, 1.0);
         player1->draw(0.0);
         player2->draw(0.0);
         fence1->draw(0.0);

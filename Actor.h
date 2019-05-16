@@ -9,8 +9,12 @@ protected:
     bool doesMove;
     int up, down, right, left;
 
+    int dirX, dirY;
+    float speed;
+    int index;
+
 public:
-    Actor(const char* filename, float x, float y, float w, float h, bool doesMove);
+    Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001);
 
     // Leave it for now :) Convention
     void setD(bool);

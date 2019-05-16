@@ -1,10 +1,10 @@
 #include "Sheep.h"
 
 
-Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool doesMove):
-             Actor(filename, x, y, w, h, true) {
+Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed):
+             Actor(filename, x, y, w, h, true, index, speed) {
     
-    left = true;
+    right = true;
 }
 
 void Sheep::move(){
@@ -15,59 +15,45 @@ void Sheep::move(){
     left = false;
     right = false;
 
-/*
-    if ((x < -1 && y > 1) || (x > 1 && y < -1)){ 
-        if (up){
-            up = false;
-            left = false;
-            right = true;
-            down = true;
-        }
-        else{
-            up = true;
-            left = true;
-            right = false;
-            down = false;
-        }
-    }
-*/
     dirX = (rand() % 3);
     dirY = (rand() % 3);
 
-    cout << "X : " << dirX << endl;
-    cout << "Y : " << dirY << endl;
 
-    if (dirX == 1){
+    if (dirX == 1) {
         left = true;
     }
-    if (dirX == 2){
+    if (dirX == 2) {
         right = true;
     }
-    if (dirY == 1){
+    if (dirY == 1) {
         up = true;
     }
-    if (dirY == 2){
+    if (dirY == 2) {
         down = true;
     }
 }
 
-void Sheep::action(Actor* pl1, Actor* pl2) {
-    checkCollision(pl1);
-    checkCollision(pl2);
+void Sheep::action(std::vector<Actor*> actors) {
+
+    move();
+
+    for(int i = 0; i < actors.size(); i++) {
+        if(i != index) checkCollision(actors[i]);
+    }
 
     if(left && x >= -1.5) {
-        x -= 0.001;
+        x -= speed;
     }
 
     if(right && (x + w) <= 1.5) {
-        x += 0.001;
+        x += speed;
     }
 
     if(up && y <= 1) {
-        y += 0.001;
+        y += speed;
     }
 
     if(down && (y - h - 0.1) >= -1) {
-        y -= 0.001;
+        y -= speed;
     }
 }

@@ -1,7 +1,8 @@
 #include "Player.h"
 
 Player::Player(const char* filename, float x, float y, float w, float h, 
-        int upK, int rightK, int downK, int leftK, bool doesMove): Actor(filename, x, y, w, h, doesMove) {
+        int upK, int rightK, int downK, int leftK, bool doesMove, int index, float speed): 
+        Actor(filename, x, y, w, h, doesMove, index, speed) {
     
     this->upK = upK;
     this->rightK = rightK;
@@ -11,23 +12,27 @@ Player::Player(const char* filename, float x, float y, float w, float h,
 }
 
 
-void Player::action(Actor* pl) {
-    checkCollision(pl);
+void Player::action(std::vector<Actor*> actors) {
+
+    for(int i = 0; i < actors.size(); i++) {
+        if(i != index) checkCollision(actors[i]);
+    }
+
 
     if(left && x >= -1.5) {
-        x -= 0.001;
+        x -= speed;
     }
 
     if(right && (x + w) <= 1.5) {
-        x += 0.001;
+        x += speed;
     }
 
     if(up && y <= 1) {
-        y += 0.001;
+        y += speed;
     }
 
     if(down && (y - h - 0.1) >= -1) {
-        y -= 0.001;
+        y -= speed;
     }
 }
 

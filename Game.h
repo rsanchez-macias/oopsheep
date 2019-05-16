@@ -8,13 +8,12 @@
 #include "TexRect.h"
 #include "Fence.h"
 #include "Rect.h"
-
-// Adding new libraries
 #include "vector"
 #include "Sheep.h"
 #include "iterator"
 #include <ctime>
 #include <cstdlib>
+#include "Actor.h"
 
 
 class Game: public AppComponent, private Timer{
@@ -22,28 +21,28 @@ class Game: public AppComponent, private Timer{
     Player* player1;
     Player* player2;
 
-
-    TexRect* startButton;
-    TexRect* title;
-    TexRect* optionButton;
-
     Fence* fence1;
     Fence* fence2;
-
-    TexRect* blueScreen;
-
-
-    Rect* leftBlock;
-    Rect* rightBlock;
-
-    bool inMenu;
-    bool inOptions;
-    bool inGame;
-    bool inOver;
 
     // Adding flock
     std::vector<Sheep*> flock;
     int flockS;
+
+    std::vector<Actor*> actors;
+
+    // Menu stuff
+    bool inMenu;
+    bool inOptions;
+    bool inGame;
+    bool inOver;
+    
+    TexRect* startButton;
+    TexRect* title;
+    TexRect* optionButton;
+
+    Rect* leftBlock;
+    Rect* rightBlock;
+    TexRect* blueScreen;
 
     
 

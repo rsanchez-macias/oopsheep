@@ -1,11 +1,19 @@
 #include "Actor.h"
 #include <cmath>
 
-Actor::Actor(const char* filename, float x, float y, float w, float h, bool doesMove): TexRect(filename, x, y, w, h){
+Actor::Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed):
+             TexRect(filename, x, y, w, h){
+
     up = false;
     down = false;
     left = false;
     right = false;
+
+    dirX = 0;
+    dirY = 0;
+
+    this->speed = speed;
+    this->index = index;
 
     this->doesMove = doesMove;
 }
