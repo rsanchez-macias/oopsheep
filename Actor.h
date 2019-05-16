@@ -23,6 +23,7 @@ public:
     bool getR() const;
     bool getL() const;
 
+    virtual void move(){};
     void checkCollision(Actor* act);
 
     ~Actor();

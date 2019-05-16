@@ -22,8 +22,8 @@ public:
 
     Sheep(const char* filename, float x, float y, float w, float h, bool doesMove);
     
-    void rmove();
-    void action();
+    void move();
+    void action(Actor* pl1, Actor* pl2);
 };
 
 #endif

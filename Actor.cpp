@@ -6,10 +6,13 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     down = false;
     left = false;
     right = false;
+
     this->doesMove = doesMove;
 }
 
+
 void Actor::checkCollision(Actor* act) {
+
     float x = act->getX(), y = act->getY(), w = act->getW(), h = act->getH();
     
     if(

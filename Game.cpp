@@ -60,7 +60,7 @@ void Game::action(){
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action();
+            flock[i]->action(player1, player2);
         }
     }
 }

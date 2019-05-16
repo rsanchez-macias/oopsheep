@@ -7,7 +7,7 @@ Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool does
     left = true;
 }
 
-void Sheep::rmove(){
+void Sheep::move(){
     timer = 10;  
     
     up = false;
@@ -51,22 +51,23 @@ void Sheep::rmove(){
     }
 }
 
-void Sheep::action() {
+void Sheep::action(Actor* pl1, Actor* pl2) {
+    checkCollision(pl1);
+    checkCollision(pl2);
 
-    if(true && x >= -1.5) {
-        x -= 0.0005;
+    if(left && x >= -1.5) {
+        x -= 0.001;
     }
+
     if(right && (x + w) <= 1.5) {
-        x += 0.0005;
+        x += 0.001;
     }
+
     if(up && y <= 1) {
-        y += 0.0005;
+        y += 0.001;
     }
+
     if(down && (y - h - 0.1) >= -1) {
-        y -= 0.0005;
+        y -= 0.001;
     }
-    // if (timer = 0){
-    //     rmove();
-    // //    std::cout << "DOT H" << std::endl;
-    // }
 }

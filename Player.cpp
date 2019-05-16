@@ -10,6 +10,28 @@ Player::Player(const char* filename, float x, float y, float w, float h,
 
 }
 
+
+void Player::action(Actor* pl) {
+    checkCollision(pl);
+
+    if(left && x >= -1.5) {
+        x -= 0.001;
+    }
+
+    if(right && (x + w) <= 1.5) {
+        x += 0.001;
+    }
+
+    if(up && y <= 1) {
+        y += 0.001;
+    }
+
+    if(down && (y - h - 0.1) >= -1) {
+        y -= 0.001;
+    }
+}
+
+
 void Player::move(int key) {
     if(key == leftK) {
         left = true;
@@ -37,22 +59,5 @@ void Player::stop(int key) {
     }
     if(key == downK) {
         down = false;
-    }
-}
-
-void Player::action(Actor* pl) {
-    checkCollision(pl);
-
-    if(left && x >= -1.5) {
-        x -= 0.001;
-    }
-    if(right && (x + w) <= 1.5) {
-        x += 0.001;
-    }
-    if(up && y <= 1) {
-        y += 0.001;
-    }
-    if(down && (y - h - 0.1) >= -1) {
-        y -= 0.001;
     }
 }

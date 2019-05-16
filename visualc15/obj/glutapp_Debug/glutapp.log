@@ -1,16 +1,18 @@
-﻿  Game.cpp
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(33): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(40): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(48): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(72): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(84): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+﻿  Player.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.cpp(18): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.cpp(22): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.cpp(26): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Player.cpp(30): warning C4305: '-=': truncation from 'double' to 'float'
+Actor.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+stb_image_aug.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+SOIL.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+image_helper.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+image_DXT.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Timer.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+TextBox.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+TexRect.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Rect.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+GlutApp.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+AnimatedRect.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Ad.obj : warning LNK4204: 'C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
   glutapp.vcxproj -> C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\glutapp.exe
