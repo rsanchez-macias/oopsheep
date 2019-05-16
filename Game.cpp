@@ -19,18 +19,29 @@
 #include <ctime>
 #include <cstdlib>
 
+using namespace std;
+
 Game::Game(){
 
-    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100, true);
-    player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97, true);
+    actorsS = 0;
 
+    actors.push_back(new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100, true));
+    //actors[0] = p1;
+    actorsS ++;
+    actors.push_back(new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97, true));
+    //actors[1] = p2;
+    actorsS ++;
 
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
 
-    fence1 = new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0);
-    fence2 = new Fence("../fence2.png", 0.80, 0.5, 0.7, 1.0);
+    actors.push_back(new Fence("../fence1.png", -1.5, 0.5, 0.7, 1.0));
+    //actors[2] = f1;
+    actorsS ++;
+    actors.push_back(new Fence("../fence2.png", 0.80, 0.5, 0.7, 1.0));
+    //actors[3] = f2;
+    actorsS ++;
     
     inMenu = true;
     inGame = false;
@@ -47,6 +58,9 @@ Game::Game(){
     for(int i = 0; i < flockS; i ++)
         flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, true));
 
+    actorsS += flockS;
+    //actors[4] = sheep;
+
 
     setRate(1);
     start();
@@ -55,12 +69,12 @@ Game::Game(){
 void Game::action(){
     if(inGame) {
        
-        player1->action(player2);
-        player2->action(player1);
+        player1->action(actors, actorsS, 0);
+        player2->action(actors, actorsS, 1);
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action(player1, player2);
+            flock[i]->action(actors, actorsS, i + 4);
         }
     }
 }

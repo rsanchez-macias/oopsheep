@@ -16,9 +16,14 @@
 #include <ctime>
 #include <cstdlib>
 
+using namespace std;
+
 
 class Game: public AppComponent, private Timer{
     
+    std::vector<Actor*> actors;
+    int actorsS;
+
     Player* player1;
     Player* player2;
 

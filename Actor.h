@@ -3,6 +3,9 @@
 
 #include "TexRect.h"
 #include <cmath>
+#include <vector>
+
+using namespace std;
 
 class Actor: public TexRect {
 protected:
@@ -24,7 +27,7 @@ public:
     bool getL() const;
 
     virtual void move(){};
-    void checkCollision(Actor* act);
+    void action(vector<Actor*>, int ,int );
 
     ~Actor();
 

@@ -1,5 +1,7 @@
 #include "Sheep.h"
+#include <vector>
 
+using namespace std;
 
 Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool doesMove):
              Actor(filename, x, y, w, h, true) {
@@ -15,22 +17,6 @@ void Sheep::move(){
     left = false;
     right = false;
 
-/*
-    if ((x < -1 && y > 1) || (x > 1 && y < -1)){ 
-        if (up){
-            up = false;
-            left = false;
-            right = true;
-            down = true;
-        }
-        else{
-            up = true;
-            left = true;
-            right = false;
-            down = false;
-        }
-    }
-*/
     dirX = (rand() % 3);
     dirY = (rand() % 3);
 
@@ -51,9 +37,13 @@ void Sheep::move(){
     }
 }
 
-void Sheep::action(Actor* pl1, Actor* pl2) {
-    checkCollision(pl1);
-    checkCollision(pl2);
+void Sheep::action(vector<Actor*> act, int size, int self) {
+    //CHECK COLLISOION
+    for (int i = 0; i < size; i ++){
+        if (i != self){
+            checkCollision(act[i]);
+        }
+    }
 
     if(left && x >= -1.5) {
         x -= 0.001;

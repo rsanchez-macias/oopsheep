@@ -6,6 +6,7 @@
 #include <ctime>
 #include <stdio.h>
 #include "Actor.h"
+#include <vector>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ public:
     Sheep(const char* filename, float x, float y, float w, float h, bool doesMove);
     
     void move();
-    void action(Actor* pl1, Actor* pl2);
+    void action(vector<Actor*>, int, int);
 };
 
 #endif

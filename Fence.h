@@ -5,6 +5,9 @@
 #include "Rect.h"
 
 #include "Player.h"
+#include <vector>
+
+using namespace std;
 
 class Fence: public TexRect {
     int points;

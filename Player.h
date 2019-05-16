@@ -4,6 +4,9 @@
 #include <cmath>
 #include <iostream>
 #include "Actor.h"
+#include <vector>
+
+using namespace std;
 
 class Player: public Actor {
 
@@ -15,7 +18,7 @@ public:
 
         void move(int key);
         void stop(int key);
-        void action(Actor* pl);
+        void action(vector<Actor*>, int, int);
 
 };
 
