@@ -21,9 +21,9 @@
 
 Game::Game(){
 
-    //Adding a player to the game
-    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100);
-    player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97);
+    player1 = new Player("../cutecat.jpg", 0.0, 0.0, 0.2, 0.2, 101, 102, 103, 100, true);
+    player2 = new Player("../pikachu.png", 0.5, 0.5, 0.2, 0.2, 119, 100, 115, 97, true);
+
 
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
@@ -45,7 +45,7 @@ Game::Game(){
       flockS = 10;
 
     for(int i = 0; i < flockS; i ++)
-        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, 1, 1, 1, 1));
+        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, true));
 
 
     setRate(1);
@@ -54,14 +54,13 @@ Game::Game(){
 
 void Game::action(){
     if(inGame) {
-        for (int i = 0; i < flockS; i ++){
-            player1->action(player2, fence1, fence2, flock[i]);
-            player2->action(player1, fence2, fence2, flock[i]);
-        }
-
+       
+        player1->action(player2);
+        player2->action(player1);
+        
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action(player1, player2, fence1, fence2);
+            flock[i]->action();
         }
     }
 }
@@ -110,15 +109,15 @@ void Game::handleKeyDown(unsigned char key, float x, float y){
     }
 }
 
-void Game::handleKeyUp(unsigned char key, float x, float y) {
-    if(key == 119 || key == 100 || key == 115 || key == 97) {
-        player2->stop(key);
-    }
-}
-
 void Game::handleSpecialKeyDown(int key, float x, float y) {
     if(key >= 100 && key <= 103) {
         player1->move(key);
+    }
+}
+
+void Game::handleKeyUp(unsigned char key, float x, float y) {
+    if(key == 119 || key == 100 || key == 115 || key == 97) {
+        player2->stop(key);
     }
 }
 
@@ -147,5 +146,9 @@ Game::~Game(){
     delete player2;
     delete startButton;
     delete optionButton;
+
+    for(vector<Sheep*>::iterator i = flock.begin(); i != flock.end(); i++)
+        delete *i;
+
     stop();
 }

@@ -1,89 +1,72 @@
 #include "Sheep.h"
-#include <ctime>
-#include <cstdlib>
 
-class Sheep: public TexRect {
 
-    bool up, down, left, right;
-    int upK, downK, leftK, rightK;
-    int dirX, dirY;
+Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool doesMove):
+             Actor(filename, x, y, w, h, true) {
+    
+    left = true;
+}
 
-    int timer = 100;
+void Sheep::rmove(){
+    timer = 10;  
+    
+    up = false;
+    down = false;
+    left = false;
+    right = false;
 
-public:
-
-   // Player(float x, float y, float w, float h, float r, float g, float b);
-    Sheep(const char* filename, float x, float y, float w, float h, int upK, int rightK, int downK, int leftK): TexRect(filename, x, y, w, h) {
-        up = true;
-        down = false;
-        left = true;
-        right = false;
-
-        this->upK = upK;
-        this->rightK = rightK;
-        this->downK = downK;
-        this->leftK = leftK;
-    }
-
-    void rmove(){
-        //timer = 100;
-        
-        /*
-        up = false;
-        down = false;
-        left = false;
-        right = false;
-        */
-
-        if ((x < -0.8 && y > 0.8) || (x > 0.8 && y < -0.8)){ 
-            if (up){
-                up = false;
-                left = false;
-                right = true;
-                down = true;
-            }
-            else{
-                up = true;
-                left = true;
-                right = false;
-                down = false;
-            }
-        }
-
-        /*
-        if (dirX == 1){
-            left = true;
-        }
-        if (dirX == 2){
+/*
+    if ((x < -1 && y > 1) || (x > 1 && y < -1)){ 
+        if (up){
+            up = false;
+            left = false;
             right = true;
-        }
-        if (dirY == 1){
-            up = true;
-        }
-        if (dirY == 2){
             down = true;
         }
-        */
-    };
+        else{
+            up = true;
+            left = true;
+            right = false;
+            down = false;
+        }
+    }
+*/
+    dirX = (rand() % 3);
+    dirY = (rand() % 3);
 
-    void action() {
-        if(left) {
-            x -= 0.0005;
-        }
-        if(right) {
-            x += 0.0005;
-        }
-        if(up) {
-            y += 0.0005;
-        }
-        if(down) {
-            y -= 0.0005;
-        }
-        if (timer = 0){
-            rmove();
-        //    std::cout << "DOT H" << std::endl;
-        }
-        timer --;
-        rmove();
-    };
-};
+    cout << "X : " << dirX << endl;
+    cout << "Y : " << dirY << endl;
+
+    if (dirX == 1){
+        left = true;
+    }
+    if (dirX == 2){
+        right = true;
+    }
+    if (dirY == 1){
+        up = true;
+    }
+    if (dirY == 2){
+        down = true;
+    }
+}
+
+void Sheep::action() {
+
+    if(true && x >= -1.5) {
+        x -= 0.0005;
+    }
+    if(right && (x + w) <= 1.5) {
+        x += 0.0005;
+    }
+    if(up && y <= 1) {
+        y += 0.0005;
+    }
+    if(down && (y - h - 0.1) >= -1) {
+        y -= 0.0005;
+    }
+    // if (timer = 0){
+    //     rmove();
+    // //    std::cout << "DOT H" << std::endl;
+    // }
+}

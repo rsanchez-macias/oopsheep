@@ -11,14 +11,17 @@
 
 // Adding new libraries
 #include "vector"
-#include "sheep.h"
+#include "Sheep.h"
 #include "iterator"
 #include <ctime>
 #include <cstdlib>
 
+
 class Game: public AppComponent, private Timer{
+    
     Player* player1;
     Player* player2;
+
 
     TexRect* startButton;
     TexRect* title;
@@ -41,6 +44,8 @@ class Game: public AppComponent, private Timer{
     // Adding flock
     std::vector<Sheep*> flock;
     int flockS;
+
+    
 
 public:
     Game();
