@@ -14,6 +14,7 @@ class Net: public TexRect {
     bool pointPosition;
 
     TextBox* screenPts;
+    TextBox* playerName;
 
 public:
 
@@ -21,6 +22,7 @@ public:
 
     int getTotal() const;
     void addPoints();
+    void resetPoints();
 
     void draw(float z);
 

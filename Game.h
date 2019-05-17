@@ -14,7 +14,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "Actor.h"
-
+#include "TextBox.h"
 
 class Game: public AppComponent, private Timer{
     
@@ -51,6 +51,10 @@ class Game: public AppComponent, private Timer{
     Rect* rightBlock;
     TexRect* blueScreen;
 
+
+    TextBox* winnerMsg;
+    TexRect* returnToMenu;
+    TexRect* startAgain;
     
 
 public:

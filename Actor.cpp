@@ -22,6 +22,14 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     this->doesMove = doesMove;
 }
 
+void Actor::setHit(bool hit) {
+    this->hit = hit;
+}
+
+bool Actor::getHit() const {
+    return hit;
+}
+
 void Actor::checkBorderCollision(Actor* act) {
     if((abs(act->getX() + 1.5) <= 0.005)) {
         //act->hit = false;
@@ -66,7 +74,7 @@ void Actor::checkCollision(Actor* act) {
     float centerY2 = y - (h / 2);
     float centerY3 = y - (3 * (h / 4));
 
-    
+
     if(
         (contains(x, y) && 
         abs(getX() + getW() - x) <= 0.005)
@@ -75,8 +83,11 @@ void Actor::checkCollision(Actor* act) {
         || (contains(x, centerY2))
     ) {
         right = false;
-        act->right = true;
-        hit = true;  
+
+        if(!(index >= 2 && (act->index <= 2))) {
+            act->right = true;
+            hit = true;  
+        }
     }
 
     if(
@@ -89,9 +100,10 @@ void Actor::checkCollision(Actor* act) {
         || (contains(centerX3, y))
     ) {
         down = false;
-        act->down = true;
-        hit = true;
-         
+        if(!(index >= 2 && (act->index <= 2))) {
+            act->down = true;
+            hit = true;
+        }
     }
 
     if(
@@ -102,8 +114,10 @@ void Actor::checkCollision(Actor* act) {
         || contains(x + w, centerY2)
     ) {
         left = false;
-        act->left = true;
-        hit = true;
+        if(!(index >= 2 && (act->index <= 2))) {
+            act->left = true;
+            hit = true;
+        }
     }
 
     if(
@@ -116,8 +130,10 @@ void Actor::checkCollision(Actor* act) {
         || contains(centerX3, y - h)
     ) {
         up = false;
-        act->up = true;
-        hit = true;
+        if(!(index >= 2 && (act->index <= 2))) {
+            act->up = true;
+            hit = true;
+        }
     }
 
     if(act->index >= 2) {

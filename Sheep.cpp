@@ -4,7 +4,6 @@
 Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed):
              Actor(filename, x, y, w, h, true, index, speed) {
     
-    right = true;
     inside = false;
 }
 

@@ -31,6 +31,11 @@ Game::Game(){
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
 
+    returnToMenu = new TexRect("../return.png", -0.1, 0.3, 0.4, 0.2);
+    startAgain = new TexRect("../playAgain.png", -0.1, -0.1, 0.4, 0.2);
+    winnerMsg = new TextBox("", -0.2, 0.7, GLUT_BITMAP_TIMES_ROMAN_24, 1.0, 1.0, 1.0, 800);
+
+
     net1 = new Net("../net.png", -1.5, 0.4, 0.35, 0.8, true);
     net2 = new Net("../net.png", 1.15, 0.4, 0.35, 0.8, false);
 
@@ -61,7 +66,7 @@ Game::Game(){
     flockS = 10;
 
     for(int i = 0; i < flockS; i ++) {
-        flock.push_back(new Sheep("../sheep.png", 0.5-(0.15 * i),0.5-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.0008));
+        flock.push_back(new Sheep("../sheep.png", 0.7-(0.15 * i), 0.8-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.0008));
         actors.push_back(flock[i]);
     }
 
@@ -83,6 +88,13 @@ void Game::action(){
 
         net1->action(flock);
         net2->action(flock);    
+
+        if(net1->getTotal() == 5 || net2->getTotal() == 5) {
+            inGame = false;
+            inOver = true;
+            if(net1->getTotal() == 5) winnerMsg->changeText("Player 2 has won!!!!!!");
+            else winnerMsg->changeText("Player 1 has won!!!!!!");
+        }
     }
 }
 
@@ -119,6 +131,11 @@ void Game::draw() const {
     if(inOptions) {
         blueScreen->draw(0.0);
     }
+    if(inOver) {
+        winnerMsg->draw();
+        startAgain->draw(0.0);
+        returnToMenu->draw(0.0);
+    }
 }
 
 void Game::handleKeyDown(unsigned char key, float x, float y){
@@ -127,6 +144,21 @@ void Game::handleKeyDown(unsigned char key, float x, float y){
         inGame = false;
         inOver = false;
         inOptions = false;
+
+        net1->resetPoints();
+        net2->resetPoints();
+
+        player1->setX(-1.0);
+        player1->setY(0.0);
+        player2->setX(0.80);
+        player2->setY(0.0);
+
+        for(int i = 0; i < flockS; i ++) {
+            flock[i]->setX(0.7-(0.15 * i));
+            flock[i]->setY(0.8-(0.1 * i));
+            flock[i]->setIn(false);
+            flock[i]->setHit(false);
+        }
     }
     else if (key == 'p'){
         stop();
@@ -167,6 +199,51 @@ void Game::handleLeftMouseDown(float x, float y) {
         if(optionButton->contains(x, y)) {
             inMenu = false;
             inOptions = true;
+        }
+    }
+    if(inOver) {
+        if(startAgain->contains(x, y)) {
+            inMenu = false;
+            inGame = true;
+            inOver = false;
+            inOptions = false;
+
+            net1->resetPoints();
+            net2->resetPoints();
+
+            player1->setX(-1.0);
+            player1->setY(0.0);
+            player2->setX(0.80);
+            player2->setY(0.0);
+
+            for(int i = 0; i < flockS; i ++) {
+                flock[i]->setX(0.7-(0.15 * i));
+                flock[i]->setY(0.8-(0.1 * i));
+                flock[i]->setIn(false);
+                flock[i]->setHit(false);
+            }
+        }
+
+        if(returnToMenu->contains(x, y)) {
+            inMenu = true;
+            inGame = false;
+            inOver = false;
+            inOptions = false;
+
+            net1->resetPoints();
+            net2->resetPoints();
+
+            player1->setX(-1.0);
+            player1->setY(0.0);
+            player2->setX(0.80);
+            player2->setY(0.0);
+
+            for(int i = 0; i < flockS; i ++) {
+                flock[i]->setX(0.7-(0.15 * i));
+                flock[i]->setY(0.8-(0.1 * i));
+                flock[i]->setIn(false);
+                flock[i]->setHit(false);
+            }
         }
     }
 }

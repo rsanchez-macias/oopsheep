@@ -18,16 +18,8 @@ protected:
 public:
     Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001);
 
-    // Leave it for now :) Convention
-    void setD(bool);
-    void setU(bool);
-    void setR(bool);
-    void setL(bool);
-
-    bool getD() const;
-    bool getU() const;
-    bool getR() const;
-    bool getL() const;
+    void setHit(bool hit);
+    bool getHit() const;
 
     int getSpeed() const {return speed;}
 
