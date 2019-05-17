@@ -6,7 +6,6 @@
 #include "TexRect.h"
 #include "Rect.h"
 #include "TextBox.h"
-
 #include "Sheep.h"
 
 class Net: public TexRect {
@@ -24,6 +23,7 @@ public:
     void addPoints();
     void resetPoints();
 
+    // Draw is not constant in order to update score
     void draw(float z);
 
     void action(std::vector<Sheep*> flock);

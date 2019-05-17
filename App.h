@@ -4,7 +4,6 @@
 
 #include "GlutApp.h"
 #include "Game.h"
-#include "Ad.h"
 
 class App: public GlutApp {
     

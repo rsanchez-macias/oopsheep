@@ -30,6 +30,10 @@ void Net::addPoints() {
     points++;
 }
 
+/*
+Display the net.png as well as the score so far
+the net
+*/
 void Net::draw(float z) {
     TexRect::draw(z);
 
@@ -41,6 +45,11 @@ void Net::draw(float z) {
     screenPts->draw();
 }
 
+/*
+Check to see if the center point of the sheep is 
+in the net. If it is, remove sheep from the screen
+and add points to the corresponding net
+*/
 void Net::action(std::vector<Sheep*> flock) {
     float x, y, w, h;
     for(int i = 0; i < flock.size(); i++) {

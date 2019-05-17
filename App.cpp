@@ -4,7 +4,6 @@
 App::App(int argc, char** argv, int width, int height, const char* title): GlutApp(argc, argv, width, height, title){
     
     addComponent(new Game());
-    //addComponent(new Ad("See the best Android phones. Press 1.", "http://apple.com"));
     
     fullscreen = false;
 }

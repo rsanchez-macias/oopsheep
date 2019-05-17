@@ -116,7 +116,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Actor.cpp" />
-    <ClCompile Include="..\Ad.cpp" />
     <ClCompile Include="..\AnimatedRect.cpp" />
     <ClCompile Include="..\App.cpp" />
     <ClCompile Include="..\app_main.cpp" />
@@ -135,7 +134,6 @@
     <ClCompile Include="..\windows\stb_image_aug.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Ad.h" />
     <ClInclude Include="..\AnimatedRect.h" />
     <ClInclude Include="..\App.h" />
     <ClInclude Include="..\AppComponent.h" />

@@ -27,6 +27,8 @@ public:
     void move();
     void action(std::vector<Actor*> actors);
 
+    // Flags are used to tell whether the sheep
+    // got inside a net or not
     bool getIn() const;
     void setIn(bool inside);
 };

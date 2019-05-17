@@ -36,10 +36,6 @@ void Player::action(std::vector<Actor*> actors) {
         y -= speed;
     }
 
-    // if(dirX != 0 || dirY != 0) {
-    //     std::cout << "dirX: " << dirX << std::endl;
-    //     std::cout << "dirY: " << dirY << std::endl;
-    // }
 }
 
 
