@@ -11,7 +11,7 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     left = false;
     right = false;
 
-    hit = false;
+    hit = true;
 
     dirX = 0;
     dirY = 0;
@@ -23,7 +23,7 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
 }
 
 void Actor::setHit(bool hit) {
-    this->hit = hit;
+    //this->hit = hit;
 }
 
 bool Actor::getHit() const {

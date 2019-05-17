@@ -25,7 +25,7 @@ Game::Game(){
     flockS = 10;
 
     for(int i = 0; i < flockS; i ++) {
-        flock.push_back(new Sheep("../sheep.png", 0.7-(0.15 * i), 0.8-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.0008));
+        flock.push_back(new Sheep("../sheep.png", 0.7-(0.2 * i), 0.8-(0.2 * i), 0.1, 0.1, true, actors.size(), 0.0008));
         actors.push_back(flock[i]);
     }
 
