@@ -15,10 +15,10 @@
 
 Game::Game(){
      
-    player1 = new Player("../player1.jpg", 0.80, 0.0, 0.2, 0.2, 101, 102, 103, 100, false, 0,0.001);
+    player1 = new Player("../green.png", 0.80, 0.0, 0.2, 0.2, 101, 102, 103, 100, false, 0,0.001);
     actors.push_back(player1);
 
-    player2 = new Player("../player2.png", -1.0, 0.0, 0.2, 0.2, 119, 100, 115, 97, false, actors.size(), 0.001);
+    player2 = new Player("../red.png", -1.0, 0.0, 0.2, 0.2, 119, 100, 115, 97, false, actors.size(), 0.001);
     actors.push_back(player2);
 
      // Adding flock 
@@ -169,6 +169,7 @@ void Game::resetGame() {
         flock[i]->setY(0.8-(0.1 * i));
         flock[i]->setIn(false);
         flock[i]->setHit(false);
+        flock[i]->resetState();
     }
 }
 

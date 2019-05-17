@@ -1,5 +1,5 @@
 ﻿  Game.cpp
-C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(24): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(26): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(18): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(21): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -34,5 +34,5 @@ C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(146): warning C4305: 'argument': 
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(162): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(168): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(169): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(246): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(247): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   glutapp.vcxproj -> C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\glutapp.exe

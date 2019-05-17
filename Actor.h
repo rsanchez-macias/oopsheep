@@ -14,6 +14,8 @@ protected:
     int index;
 
     bool hit;
+    
+    bool state = true;
 
 public:
     Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001);
@@ -28,6 +30,8 @@ public:
 
     // May become private methods
     void checkBorderCollision(Actor* act);
+
+    void resetState();
 
     ~Actor();
 

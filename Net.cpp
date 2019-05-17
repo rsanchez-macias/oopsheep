@@ -13,7 +13,7 @@ Net::Net(const char* filename, float x, float y, float w, float h, bool pointPos
     }
     else {
         screenPts = new TextBox("0", 1.6, 0.7, GLUT_BITMAP_TIMES_ROMAN_24, 1.0, 1.0, 1.0, 0.4);
-        playerName = new TextBox("PL 2", 1.55, 0.9, GLUT_BITMAP_TIMES_ROMAN_24, 0.0, 1.0, 0.0, 800);
+        playerName = new TextBox("PL 2", 1.55, 0.9, GLUT_BITMAP_TIMES_ROMAN_24, 0.0, 0.0, 1.0, 800);
     }
    
 }

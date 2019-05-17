@@ -30,6 +30,10 @@ bool Actor::getHit() const {
     return hit;
 }
 
+void Actor::resetState() {
+    state = true;
+}
+
 void Actor::checkBorderCollision(Actor* act) {
     if((abs(act->getX() + 1.5) <= 0.005)) {
         //act->hit = false;
@@ -84,9 +88,10 @@ void Actor::checkCollision(Actor* act) {
     ) {
         right = false;
 
-        if(!(index >= 2 && (act->index <= 2))) {
+        if(!(index >= 2 && (act->index <= 2)) || (state)) {
             act->right = true;
             hit = true;  
+            state = false;
         }
     }
 
@@ -100,9 +105,10 @@ void Actor::checkCollision(Actor* act) {
         || (contains(centerX3, y))
     ) {
         down = false;
-        if(!(index >= 2 && (act->index <= 2))) {
+        if(!(index >= 2 && (act->index <= 2)) || (state)) {
             act->down = true;
             hit = true;
+            state = false;
         }
     }
 
@@ -114,9 +120,10 @@ void Actor::checkCollision(Actor* act) {
         || contains(x + w, centerY2)
     ) {
         left = false;
-        if(!(index >= 2 && (act->index <= 2))) {
+        if(!(index >= 2 && (act->index <= 2)) || (state)) {
             act->left = true;
             hit = true;
+            state = false;
         }
     }
 
@@ -130,9 +137,10 @@ void Actor::checkCollision(Actor* act) {
         || contains(centerX3, y - h)
     ) {
         up = false;
-        if(!(index >= 2 && (act->index <= 2))) {
+        if(!(index >= 2 && (act->index <= 2)) || (state)) {
             act->up = true;
             hit = true;
+            state = false;
         }
     }
 

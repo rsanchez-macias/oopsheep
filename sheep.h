@@ -19,7 +19,6 @@ class Sheep: public Actor {
 
     bool inside;
 
-
 public:
 
     Sheep(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed);
