@@ -122,6 +122,7 @@
     <ClCompile Include="..\app_main.cpp" />
     <ClCompile Include="..\Game.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
+    <ClCompile Include="..\Net.cpp" />
     <ClCompile Include="..\Player.cpp" />
     <ClCompile Include="..\Rect.cpp" />
     <ClCompile Include="..\Sheep.cpp" />

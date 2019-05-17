@@ -27,9 +27,13 @@ void TextBox::draw() const {
     glColor3f(r, g, b);
     float offset = 0;
     for (int i = 0; i < text.length(); i++) {
-        glRasterPos2f(x+offset, y);
+        glRasterPos3f(x+offset, y, 0.2);
         glutBitmapCharacter(font, text[i]);
         int w = glutBitmapWidth(font, text[i]);
         offset += ((float)w / width)*2;
     }
-    }
+}
+
+void TextBox::changeText(const char* text) {
+    this->text = text;
+}

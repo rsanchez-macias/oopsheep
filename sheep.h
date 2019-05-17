@@ -14,10 +14,10 @@ using namespace std;
 class Sheep: public Actor {
 
     int counter = 0;
-
     time_t t;
-
     int timer = 100;
+
+    bool inside;
 
 
 public:
@@ -26,6 +26,9 @@ public:
     
     void move();
     void action(std::vector<Actor*> actors);
+
+    bool getIn() const;
+    void setIn(bool inside);
 };
 
 #endif

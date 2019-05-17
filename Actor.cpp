@@ -76,8 +76,7 @@ void Actor::checkCollision(Actor* act) {
     ) {
         right = false;
         act->right = true;
-        hit = true;
-          
+        hit = true;  
     }
 
     if(

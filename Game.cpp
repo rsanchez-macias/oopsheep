@@ -21,18 +21,18 @@
 
 Game::Game(){
 
-    player1 = new Player("../cutecat.jpg", -0.40, 0.0, 0.2, 0.2, 101, 102, 103, 100, false, 0,0.001);
+    player1 = new Player("../cutecat.jpg", -1.0, 0.0, 0.2, 0.2, 101, 102, 103, 100, false, 0,0.001);
     actors.push_back(player1);
 
-    player2 = new Player("../pikachu.png", 0.20, 0.0, 0.2, 0.2, 119, 100, 115, 97, false, actors.size(), 0.001);
+    player2 = new Player("../pikachu.png", 0.80, 0.0, 0.2, 0.2, 119, 100, 115, 97, false, actors.size(), 0.001);
     actors.push_back(player2);
 
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
     title = new TexRect("../title.png", -0.75, 0.5, 1.5, 0.2);
     optionButton = new TexRect("../options.png", 0.15, 0.0, 0.4, 0.2);
 
-    net1 = new Net("../net.png", -1.5, 0.4, 0.35, 0.8);
-    net2 = new Net("../net.png", 1.15, 0.4, 0.35, 0.8);
+    net1 = new Net("../net.png", -1.5, 0.4, 0.35, 0.8, true);
+    net2 = new Net("../net.png", 1.15, 0.4, 0.35, 0.8, false);
 
     // const char* filename, float x, float y, float w, float h, bool doesMove, int index,  float speed = 0.001
     topWall1 = new Actor("../sideFence.png", -1.5, 0.5, 0.4, 0.1, false, actors.size(), 0.0);
@@ -61,7 +61,7 @@ Game::Game(){
     flockS = 10;
 
     for(int i = 0; i < flockS; i ++) {
-        flock.push_back(new Sheep("../sheep.png", 0.5-(0.1 * i),0.5-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.002));
+        flock.push_back(new Sheep("../sheep.png", 0.5-(0.15 * i),0.5-(0.1 * i), 0.1, 0.1, true, actors.size(), 0.0008));
         actors.push_back(flock[i]);
     }
 
@@ -77,8 +77,12 @@ void Game::action(){
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->action(actors);
+            if(!flock[i]->getIn())
+                flock[i]->action(actors);
         }
+
+        net1->action(flock);
+        net2->action(flock);    
     }
 }
 
@@ -92,7 +96,8 @@ void Game::draw() const {
         
         // Adding new stuff
         for (int i = 0; i < flockS; i ++){
-            flock[i]->draw(0.1);
+            if(!flock[i]->getIn())
+                flock[i]->draw(0.1);
         }
 
         // Draw fences

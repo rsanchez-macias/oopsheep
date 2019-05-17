@@ -26,6 +26,8 @@ public:
             float = 1,
             int = 800
     );
+
+    void changeText(const char* text);
     
     void draw() const;
 };

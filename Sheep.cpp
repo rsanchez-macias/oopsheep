@@ -5,6 +5,15 @@ Sheep::Sheep(const char* filename, float x, float y, float w, float h, bool does
              Actor(filename, x, y, w, h, true, index, speed) {
     
     right = true;
+    inside = false;
+}
+
+void Sheep::setIn(bool inside) {
+    this->inside = inside;
+}
+
+bool Sheep::getIn() const {
+    return inside;
 }
 
 void Sheep::move(){

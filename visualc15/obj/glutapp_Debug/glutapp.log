@@ -1,3 +1,45 @@
-﻿  Actor.cpp
+﻿  Ad.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Ad.cpp(5): warning C4305: 'argument': truncation from 'double' to 'float'
+  App.cpp
 C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(32): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(32): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(31): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(35): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(44): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(47): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(58): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(64): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(93): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(94): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(95): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(100): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(104): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(105): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(106): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(107): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Game.cpp(114): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+  Net.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(32): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Net.cpp(11): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Net.cpp(11): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Net.cpp(14): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\ricar\OneDrive\Desktop\Sheep\Net.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ricar\OneDrive\Desktop\Sheep\Net.cpp(39): warning C4018: '<': signed/unsigned mismatch
+  TextBox.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\TextBox.cpp(29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ricar\OneDrive\Desktop\Sheep\TextBox.cpp(30): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  app_main.cpp
+C:\Users\ricar\OneDrive\Desktop\Sheep\Actor.h(32): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  Generating Code...
   glutapp.vcxproj -> C:\Users\ricar\OneDrive\Desktop\Sheep\visualc15\obj\glutapp_Debug\glutapp.exe
