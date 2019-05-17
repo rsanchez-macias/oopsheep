@@ -9,6 +9,7 @@ Player::Player(const char* filename, float x, float y, float w, float h,
     this->downK = downK;
     this->leftK = leftK;
 
+    
 }
 
 
@@ -34,24 +35,33 @@ void Player::action(std::vector<Actor*> actors) {
     if(down && (y - h - 0.1) >= -1) {
         y -= speed;
     }
+
+    // if(dirX != 0 || dirY != 0) {
+    //     std::cout << "dirX: " << dirX << std::endl;
+    //     std::cout << "dirY: " << dirY << std::endl;
+    // }
 }
 
 
 void Player::move(int key) {
     if(key == leftK) {
         left = true;
+        right = false;
         dirX = -1;
     }
     if(key == upK) {
         up = true;
+        down = false;
         dirY = 1;
     }
     if(key == rightK) {
         right = true;
+        left = false;
         dirX = 1;
     }
     if(key == downK) {
         down = true;
+        up = false;
         dirY = -1;
     }
 }

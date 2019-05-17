@@ -21,10 +21,10 @@
 
 Game::Game(){
 
-    player1 = new Player("../cutecat.jpg", -0.40, 0.0, 0.2, 0.2, 101, 102, 103, 100, true, 0,0.001);
+    player1 = new Player("../cutecat.jpg", -0.40, 0.0, 0.2, 0.2, 101, 102, 103, 100, false, 0,0.001);
     actors.push_back(player1);
 
-    player2 = new Player("../pikachu.png", 0.20, 0.0, 0.2, 0.2, 119, 100, 115, 97, true, actors.size(), 0.001);
+    player2 = new Player("../pikachu.png", 0.20, 0.0, 0.2, 0.2, 119, 100, 115, 97, false, actors.size(), 0.001);
     actors.push_back(player2);
 
     startButton = new TexRect("../start.png", -0.55, 0.0, 0.4, 0.2);
@@ -123,7 +123,6 @@ void Game::handleKeyDown(unsigned char key, float x, float y){
         inOver = false;
         inOptions = false;
     }
-
     else if (key == 'p'){
         stop();
     }
@@ -173,7 +172,18 @@ Game::~Game(){
     delete startButton;
     delete optionButton;
 
+    delete net1;
+    delete net2;
+
+    delete topWall1;
+    delete bottomWall1;
+    delete topWall2;
+    delete bottomWall2;
+
     for(vector<Sheep*>::iterator i = flock.begin(); i != flock.end(); i++)
+        delete *i;
+
+    for(vector<Actor*>::iterator i = actors.begin(); i != actors.end(); i++)
         delete *i;
 
     stop();

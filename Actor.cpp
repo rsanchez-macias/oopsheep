@@ -1,6 +1,8 @@
 #include "Actor.h"
 #include <cmath>
 
+#include <iostream>
+
 Actor::Actor(const char* filename, float x, float y, float w, float h, bool doesMove, int index, float speed):
              TexRect(filename, x, y, w, h){
 
@@ -20,12 +22,34 @@ Actor::Actor(const char* filename, float x, float y, float w, float h, bool does
     this->doesMove = doesMove;
 }
 
-void Actor::collided(Actor* act, int dir) {
-    for(int i = 0; i < 5; i++) {
-        if(dir == 1) act->setX(act->getX() - 0.001);
-        if(dir == 2) act->setY(act->getY() + 0.001);
-        if(dir == 3) act->setX(act->getX() + 0.001);
-        if(dir == 4) act->setY(act->getY() - 0.001);
+void Actor::checkBorderCollision(Actor* act) {
+    if((abs(act->getX() + 1.5) <= 0.005)) {
+        //act->hit = false;
+        act->right = true;
+        act->left = false;
+        act->up = false;
+        act->down = false;
+    }
+    if((abs(act->getY() - 1.0) <= 0.005)) {
+        //act->hit = false;
+        act->right = false;
+        act->left = false;
+        act->up = false;
+        act->down = true;
+    }
+    if((abs(act->getX() + act->getW() - 1.5) <= 0.005)) {
+        //act->hit = false;
+        act->right = false;
+        act->left = true;
+        act->up = false;
+        act->down = false;
+    }
+    if((abs(act->getY() - act->getH() + 0.9) <= 0.05)) {
+        //act->hit = false;
+        act->right = false;
+        act->left = false;
+        act->up = true;
+        act->down = false;
     }
 }
 
@@ -34,8 +58,13 @@ void Actor::checkCollision(Actor* act) {
 
     float x = act->getX(), y = act->getY(), w = act->getW(), h = act->getH();
 
-    float centerX = x + (w / 2);
-    float centerY = y - (h / 2);
+    float centerX1 = x + (w / 4);
+    float centerX2 = x + (w / 2);
+    float centerX3 = x + 3 * (w / 4);
+
+    float centerY1 = y - (h / 4);
+    float centerY2 = y - (h / 2);
+    float centerY3 = y - (3 * (h / 4));
 
     
     if(
@@ -43,11 +72,12 @@ void Actor::checkCollision(Actor* act) {
         abs(getX() + getW() - x) <= 0.005)
         || (contains(x, y - h) && 
         (abs(getX() + getW() - x) <= 0.005))
-        || (contains(x, centerY))
+        || (contains(x, centerY2))
     ) {
-            right = false;
-            //act->right = true;
-            //hit = true;
+        right = false;
+        act->right = true;
+        hit = true;
+          
     }
 
     if(
@@ -55,11 +85,14 @@ void Actor::checkCollision(Actor* act) {
         abs(getY() - getH() - y) <= 0.005)
         || (contains(x + w, y) && 
         !(abs(x + w - getX()) <= 0.005))
-        || (contains(centerX, y))
+        || (contains(centerX1, y))
+        || (contains(centerX2, y))
+        || (contains(centerX3, y))
     ) {
-            down = false;
-            //act->down = true;
-            //hit = true;
+        down = false;
+        act->down = true;
+        hit = true;
+         
     }
 
     if(
@@ -67,11 +100,11 @@ void Actor::checkCollision(Actor* act) {
         abs(x + w - getX()) <= 0.005)
         || (contains(x + w, y - h) &&
         !(abs(getY() - y + h) <= 0.005))
-        || contains(x + w, centerY)
+        || contains(x + w, centerY2)
     ) {
-            left = false;
-            //act->left = true;
-            //hit = true;
+        left = false;
+        act->left = true;
+        hit = true;
     }
 
     if(
@@ -79,12 +112,19 @@ void Actor::checkCollision(Actor* act) {
         abs(getY() - y + h) <= 0.005)
         || (contains(x, y - h) &&
         !(abs(getX() + getW() - x) <= 0.005))
-        || contains(centerX, y - h)
+        || contains(centerX1, y - h)
+        || contains(centerX2, y - h)
+        || contains(centerX3, y - h)
     ) {
-            up = false;
-            //act->up = true;
-            //hit = true;
+        up = false;
+        act->up = true;
+        hit = true;
     }
+
+    if(act->index >= 2) {
+        checkBorderCollision(act);
+    }
+
 }
 
 Actor::~Actor() {

@@ -15,8 +15,7 @@ public:
     TexRect(filename, x, y, w, h) {}
 
     int getTotal() const {}
-
-    int subPoints() {}
+    
     int addPoints() {}
 };
 

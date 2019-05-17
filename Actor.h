@@ -35,8 +35,7 @@ public:
     void checkCollision(Actor* act);
 
     // May become private methods
-    bool checkBorderCollision(Actor* act);
-    void collided(Actor* act, int dir);
+    void checkBorderCollision(Actor* act);
 
     ~Actor();
 
